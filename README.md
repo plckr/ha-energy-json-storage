@@ -11,6 +11,7 @@ This implementation allows HA to save the energy consumption of the entire day. 
 ## Requirements
 - **[lovelace cards]** [mini-graph-card](https://github.com/kalkih/mini-graph-card)
 - **[lovelace cards]** [card-mod](https://github.com/thomasloven/lovelace-card-mod)
+- Sensor that measures the house consumption and resets everyday, example: [utility_meter](https://www.home-assistant.io/integrations/utility_meter/)
 - Place python files into `/config/python_scripts/` directory
 - Please ensure you have the json file created `/config/data/energy_daily_simples_kw.json`
 - The below code should be added too
