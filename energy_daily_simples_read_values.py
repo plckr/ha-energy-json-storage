@@ -8,6 +8,7 @@ import re
 def main(argv):
   argm = argv[0]
   argd = argv[1]
+  json_file_path = '/config/data/energy_daily_simples_kw.json'
   
   if re.match("^([Jj][Aa][Nn]|01|1)", argm):
     month = 1
@@ -52,7 +53,7 @@ def main(argv):
       return
     raise ValueError("Day must be an integer")
   
-  with open('/config/data/energy_daily_simples_kw.json', 'r') as data_file:
+  with open(json_file_path, 'r') as data_file:
     try:
       data = json.load(data_file)
     except ValueError:
