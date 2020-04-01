@@ -43,7 +43,12 @@ def main(argv):
     dt = dt.replace(day=int(argd), month=month)
   except ValueError as e:
     if str(e) == "day is out of range for month":
-      print("unknown")
+      #
+      # Best is to print unknown, but mini-graph-card ignores unknown
+      # and shows last not-unknown value. So this method isn't recommended
+      #
+      # print("unknown")
+      print("0")
       return
     raise ValueError("Day must be an integer")
   
