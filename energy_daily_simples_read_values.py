@@ -38,9 +38,13 @@ def main(argv):
     # raise ValueError("Month unreadable, accepts portuguese or english month name, also accepts numeric")
   
   dt = datetime.datetime.today()
+  # dt = dt.replace(day=int(argd), month=month)
   try:
     dt = dt.replace(day=int(argd), month=month)
-  except ValueError:
+  except ValueError as e:
+    if str(e) == "day is out of range for month":
+      print("unknown")
+      return
     raise ValueError("Day must be an integer")
   
   with open('/config/data/energy_daily_simples_kw.json', 'r') as data_file:
