@@ -6,14 +6,15 @@
 Tested in HA version 0.107.4
 This implementation allows HA to save the energy consumption of the entire day. It saves in a json file and can save for several years
 
-**To change between months with the `input_select`, this only allows for Portuguese and English month languages. If you want another language, use one `input_select` calling this `input_select`**
+**To change between months with the `input_select`, this only allows for Portuguese and English month languages. If you want another language, use another `input_select` calling this `input_select`**
 
 ## Requirements
 - **[lovelace cards]** [mini-graph-card](https://github.com/kalkih/mini-graph-card)
 - **[lovelace cards]** [card-mod](https://github.com/thomasloven/lovelace-card-mod)
 - Sensor that measures the house consumption and resets everyday, example: [utility_meter](https://www.home-assistant.io/integrations/utility_meter/)
 - Place python files into `/config/python_scripts/` directory
-- Please ensure you have the json file created `/config/data/energy_daily_simples_kw.json`
+- If json file doesn't exist, it will create but needs the folder
+- So, please ensure you have the folder `data` in `/config` -> `/config/data/`
 - The below code should be added too
 
 ### HA Code
