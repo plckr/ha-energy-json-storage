@@ -54,16 +54,23 @@ def main(argv):
       raise ValueError("Json file isn't correctly formatted")
   
   try:
+    # Previous year
     if datetime.datetime.today().month < month:
       dt = dt.replace(year=dt.year-1)
       print (data[str(dt.year)][dt.strftime("%B")][str(dt.day)])
-    elif dt.day > datetime.datetime.today().day:
-      # print("unknown")
-      print("0")
+      return
+    # Current year
     else:
-      print (data[str(dt.year)][dt.strftime("%B")][str(dt.day)])
-      
-  except KeyError:
+      # Current month
+      if dt.month == datetime.datetime.today().month:
+        if dt.day > datetime.datetime.today().day:
+          # print("unknown")
+          print("0")
+          return
+    print (data[str(dt.year)][dt.strftime("%B")][str(dt.day)])
+    return
+
+  except KeyError as e:
     print("0")
 
 if __name__ == "__main__":
