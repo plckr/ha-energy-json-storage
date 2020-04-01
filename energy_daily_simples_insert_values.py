@@ -6,8 +6,9 @@ import sys
 
 def main(argv):
   dt = datetime.datetime.today()
+  json_file_path = '/config/data/energy_daily_simples_kw.json'
   
-  with open('/config/data/energy_daily_simples_kw.json', 'r') as data_file:
+  with open(json_file_path, 'r') as data_file:
     try:
       data = json.load(data_file)
     except ValueError:
@@ -19,9 +20,18 @@ def main(argv):
         }
       }
   
-  with open('/config/data/energy_daily_simples_kw.json', 'w') as data_file:
-    data[str(dt.year)][dt.strftime("%B")][str(dt.day)] = float(argv)
+  with open(json_file_path, 'w') as data_file:
+    for i in range(0,10):
+      try:
+        data[str(dt.year)][dt.strftime("%B")][str(dt.day)] = float(argv)
+      except KeyError:
+        data[str(dt.year)][dt.strftime("%B")] = {}
+        continue
+      break
+    
     json.dump(data, data_file)
+
+    
 
 if __name__ == "__main__":
   try:
