@@ -1,3 +1,6 @@
+# DEPRECATED
+A better implementation is available https://github.com/ricreis394/ha-daily-insert-mysql
+
 # Home Assistant - Energy consumption graph
 
 ![](./img/lovelace.gif)
